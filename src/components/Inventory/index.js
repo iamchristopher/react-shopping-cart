@@ -8,8 +8,8 @@ export default ({ products }) => (
     <div>
         <h2>Inventory</h2>
         <ListGroup>
-            {products.map(product => (
-                <ListGroupItem>
+            {products.map((product, i) => (
+                <ListGroupItem key={i}>
                     {product.name}
                 </ListGroupItem>
             ))}
