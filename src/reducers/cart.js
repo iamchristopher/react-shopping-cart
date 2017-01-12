@@ -1,5 +1,6 @@
 import {
-    UPDATE_CART_QUANTITY
+    UPDATE_CART_QUANTITY,
+    FLUSH_CART
 } from '../actions/cart';
 import {
     REMOVE_INVENTORY_ITEM
@@ -39,6 +40,8 @@ export default (state = initialState, action = {}) => {
             } = state;
 
             return newState;
+        case FLUSH_CART:
+            return {};
         default:
             return state;
     }
