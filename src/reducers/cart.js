@@ -3,6 +3,7 @@ import {
 } from '../actions/cart';
 
 const initialState = {
+    1: 1
 };
 
 export default (state = initialState, action = {}) => {
@@ -15,6 +16,13 @@ export default (state = initialState, action = {}) => {
                 } = state;
 
                 return newState;
+            }
+
+            if (action.merge && typeof state[action.id] !== 'undefined') {
+                return {
+                    ...state,
+                    [action.id]: state[action.id] + parseInt(action.quantity, 10)
+                };
             }
 
             return {
