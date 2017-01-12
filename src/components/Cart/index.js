@@ -3,18 +3,33 @@ import {
     Alert,
     Badge,
     ListGroup,
-    ListGroupItem
+    ListGroupItem,
+    Panel,
+    Row
 } from 'react-bootstrap';
 
 export default ({
     items,
     itemCount
 }) => (
-    <div>
-        <h2>
-            Cart <Badge>{itemCount}</Badge>
-        </h2>
-
+    <Panel
+        bsStyle="primary"
+        header={
+            <span>
+                My Cart&nbsp;<Badge>{itemCount}</Badge>
+            </span>
+        }
+        footer={
+            <div className="clearfix">
+            <span className="pull-right clearfix">
+                Total: ${Number(1).toLocaleString('en', {
+                    style: 'decimal',
+                    minimumFractionDigits: 2
+                })}
+            </span>
+        </div>
+        }
+    >
         {
             itemCount === 0 &&
                 <Alert
@@ -35,5 +50,5 @@ export default ({
                     ))}
                 </ListGroup>
         }
-    </div>
+    </Panel>
 );
