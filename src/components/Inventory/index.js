@@ -6,7 +6,8 @@ import {
 
 export default ({
     adjustQuantity,
-    products
+    products,
+    removeItem
 }) => (
     <Table
         bordered
@@ -42,6 +43,14 @@ export default ({
                             })}
                         >
                             Add to cart
+                        </Button>
+                        <Button
+                            bsStyle="danger"
+                            onClick={() => removeItem({
+                                id: product.id
+                            })}
+                        >
+                            Remove
                         </Button>
                     </td>
                 </tr>

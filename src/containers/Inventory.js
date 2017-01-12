@@ -6,6 +6,9 @@ import Inventory from '../components/Inventory';
 import {
     adjustQuantity
 } from '../actions/cart';
+import {
+    removeItem
+} from '../actions/inventory';
 
 const mapStateToProps = ({ cart, inventory }) => ({
     products: Object.keys(inventory)
@@ -23,6 +26,11 @@ const mapDispatchToProps = (dispatch) => ({
         id,
         quantity,
         merge: true
+    })),
+    removeItem: ({
+        id
+    }) => dispatch(removeItem({
+        id
     }))
 })
 
