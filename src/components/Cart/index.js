@@ -10,7 +10,8 @@ import {
 
 export default ({
     items,
-    itemCount
+    itemCount,
+    total
 }) => (
     <Panel
         bsStyle="primary"
@@ -22,7 +23,7 @@ export default ({
         footer={
             <div className="clearfix">
             <span className="pull-right clearfix">
-                Total: ${Number(1).toLocaleString('en', {
+                Total: ${Number(total).toLocaleString('en', {
                     style: 'decimal',
                     minimumFractionDigits: 2
                 })}
