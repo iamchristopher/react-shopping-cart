@@ -7,6 +7,8 @@ import {
     FormGroup
 } from 'react-bootstrap';
 
+import styles from './styles.css';
+
 export default ({
     count,
     min = 1,
@@ -26,6 +28,7 @@ export default ({
                 -
             </Button>
             <FormControl
+                className={styles.input}
                 type="number"
                 value={count}
                 min={min}

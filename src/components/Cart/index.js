@@ -53,13 +53,9 @@ export default ({
                         <ListGroupItem key={i}>
                             <Row>
                                 <Col
-                                    xs={5}
+                                    xs={3}
                                 >
-                                    {product.name}<br />
-                                    ${Number(product.price).toLocaleString('en', {
-                                        style: 'decimal',
-                                        minimumFractionDigits: 2
-                                    })}
+                                    {product.name}
                                 </Col>
                                 <Col
                                     xs={7}
@@ -67,6 +63,15 @@ export default ({
                                     <QuantityPicker
                                         id={product.id}
                                     />
+                                </Col>
+                                <Col
+                                    className="text-right"
+                                    xs={1}
+                                >
+                                ${Number(product.price).toLocaleString('en', {
+                                    style: 'decimal',
+                                    minimumFractionDigits: 2
+                                })}
                                 </Col>
                             </Row>
                         </ListGroupItem>

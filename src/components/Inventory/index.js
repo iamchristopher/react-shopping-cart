@@ -13,18 +13,17 @@ export default ({
         bordered
         hover
         striped
+        verticalAlign="middle"
     >
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th></th>
-            </tr>
-        </thead>
         <tbody>
             {products.map((product, i) => (
                 <tr key={i}>
                     <td>
+                        {product.id}
+                    </td>
+                    <td
+                        width="67%"
+                    >
                         {product.name}
                     </td>
                     <td>
@@ -33,7 +32,9 @@ export default ({
                             minimumFractionDigits: 2
                         })}
                     </td>
-                    <td>
+                    <td
+                        className="text-right"
+                    >
                         <Button
                             bsStyle="primary"
                             disabled={product.quantityInCart >= product.quantityOnHand}
