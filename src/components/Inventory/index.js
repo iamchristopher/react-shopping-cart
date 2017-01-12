@@ -35,6 +35,7 @@ export default ({
                     <td>
                         <Button
                             bsStyle="primary"
+                            disabled={product.quantityInCart >= product.quantityOnHand}
                             onClick={() => adjustQuantity({
                                 id: product.id,
                                 quantity: 1
