@@ -1,6 +1,9 @@
 import {
     UPDATE_CART_QUANTITY
 } from '../actions/cart';
+import {
+    REMOVE_INVENTORY_ITEM
+} from '../actions/inventory';
 
 const initialState = {
     1: 1
@@ -29,6 +32,13 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 [action.id]: parseInt(action.quantity, 10)
             };
+        case REMOVE_INVENTORY_ITEM:
+            const {
+                [action.id.toString()]: removedItem,
+                ...newState
+            } = state;
+
+            return newState;
         default:
             return state;
     }
