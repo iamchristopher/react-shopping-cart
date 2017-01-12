@@ -4,7 +4,10 @@ import {
     Table
 } from 'react-bootstrap';
 
-export default ({ products }) => (
+export default ({
+    adjustQuantity,
+    products
+}) => (
     <Table
         bordered
         hover
@@ -32,6 +35,10 @@ export default ({ products }) => (
                     <td>
                         <Button
                             bsStyle="primary"
+                            onClick={() => adjustQuantity({
+                                id: product.id,
+                                quantity: 1
+                            })}
                         >
                             Add to cart
                         </Button>
