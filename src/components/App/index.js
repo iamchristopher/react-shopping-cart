@@ -9,6 +9,7 @@ import {
 
 import styles from './styles.css';
 import Inventory from '../../containers/Inventory';
+import Cart from '../../containers/Cart';
 
 export default ({ }) => (
     <main>
@@ -18,10 +19,7 @@ export default ({ }) => (
                     <Inventory />
                 </Col>
                 <Col xs={4}>
-                    <h2>Cart</h2>
-                    <ListGroup>
-                        <ListGroupItem>Store Item</ListGroupItem>
-                    </ListGroup>
+                    <Cart />
                 </Col>
             </Row>
         </Grid>
