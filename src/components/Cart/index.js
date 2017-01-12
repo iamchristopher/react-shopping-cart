@@ -6,7 +6,8 @@ import {
     ListGroup,
     ListGroupItem,
     Panel,
-    Row
+    Row,
+    Table
 } from 'react-bootstrap';
 
 import QuantityPicker from '../../containers/CartQuantityPicker';
@@ -14,6 +15,8 @@ import QuantityPicker from '../../containers/CartQuantityPicker';
 export default ({
     items,
     itemCount,
+    subTotal,
+    taxes,
     total
 }) => (
     <Panel
@@ -25,12 +28,43 @@ export default ({
         }
         footer={
             <div className="clearfix">
-            <span className="pull-right clearfix">
-                Total: ${Number(total).toLocaleString('en', {
-                    style: 'decimal',
-                    minimumFractionDigits: 2
-                })}
-            </span>
+            <Table className="text-right clearfix">
+                <tr>
+                    <td>
+                        Subtotal:
+                    </td>
+                    <td
+                        width="30%"
+                    >
+                        ${Number(subTotal).toLocaleString('en', {
+                            style: 'decimal',
+                            minimumFractionDigits: 2
+                        })}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Taxes:
+                    </td>
+                    <td>
+                        ${Number(taxes).toLocaleString('en', {
+                            style: 'decimal',
+                            minimumFractionDigits: 2
+                        })}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Total:
+                    </td>
+                    <td>
+                        <strong>${Number(total).toLocaleString('en', {
+                            style: 'decimal',
+                            minimumFractionDigits: 2
+                        })}</strong>
+                    </td>
+                </tr>
+            </Table>
         </div>
         }
     >
