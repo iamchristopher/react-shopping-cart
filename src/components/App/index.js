@@ -3,8 +3,8 @@ import {
     Grid,
     Row,
     Col,
-    ListGroup,
-    ListGroupItem
+    Nav,
+    NavItem
 } from 'react-bootstrap';
 
 import styles from './styles.css';
@@ -16,6 +16,22 @@ export default ({ }) => (
         <Grid>
             <Row>
                 <Col xs={8}>
+                    <Nav
+                        activeKey="view"
+                        bsStyle="tabs"
+                        justified
+                    >
+                        <NavItem
+                            eventKey="view"
+                        >
+                            View Inventory
+                        </NavItem>
+                        <NavItem
+                            eventKey="add"
+                        >
+                            Add Inventory
+                        </NavItem>
+                    </Nav>
                     <Inventory />
                 </Col>
                 <Col xs={4}>
