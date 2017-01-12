@@ -2,11 +2,14 @@ import React from 'react';
 import {
     Alert,
     Badge,
+    Col,
     ListGroup,
     ListGroupItem,
     Panel,
     Row
 } from 'react-bootstrap';
+
+import QuantityPicker from '../../containers/CartQuantityPicker';
 
 export default ({
     items,
@@ -43,10 +46,29 @@ export default ({
 
         {
             itemCount > 0 &&
-                <ListGroup>
+                <ListGroup
+                    fill
+                >
                     {items.map((product, i) => (
                         <ListGroupItem key={i}>
-                            {product.name}
+                            <Row>
+                                <Col
+                                    xs={5}
+                                >
+                                    {product.name}<br />
+                                    ${Number(product.price).toLocaleString('en', {
+                                        style: 'decimal',
+                                        minimumFractionDigits: 2
+                                    })}
+                                </Col>
+                                <Col
+                                    xs={7}
+                                >
+                                    <QuantityPicker
+                                        id={product.id}
+                                    />
+                                </Col>
+                            </Row>
                         </ListGroupItem>
                     ))}
                 </ListGroup>
