@@ -4,6 +4,9 @@ import {
 import decimal from 'decimal.js';
 
 import Cart from '../components/Cart';
+import {
+    flushCart
+} from '../actions/cart';
 
 const mapStateToProps = ({ cart, inventory }) => {
     const subTotal = Object.keys(cart)
@@ -32,6 +35,29 @@ const mapStateToProps = ({ cart, inventory }) => {
     };
 };
 
+const mapDispatchToProps = (dispatch) => ({
+    completeOrder ({
+        total,
+        itemCount
+    }) {
+        const confirmationMessage = `Are you sure you want to purchase ${itemCount} item${itemCount !== 1 ? 's' : ''} for $${total}?`;
+
+        if (confirm(confirmationMessage)) {
+            return dispatch(flushCart());
+        }
+    }
+});
+
+const mergeProps = (stateProps, dispatchProps) => ({
+    ...stateProps,
+    completeOrder: () => dispatchProps.completeOrder({
+        total: stateProps.total,
+        itemCount: stateProps.itemCount
+    })
+});
+
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps
 )(Cart);

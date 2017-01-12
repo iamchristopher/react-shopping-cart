@@ -18,7 +18,8 @@ export default ({
     itemCount,
     subTotal,
     taxes,
-    total
+    total,
+    completeOrder
 }) => (
     <Panel
         bsStyle="primary"
@@ -72,6 +73,7 @@ export default ({
                         block
                         bsSize="large"
                         bsStyle="success"
+                        onClick={completeOrder}
                     >
                         Proceeed to Checkout &rarr;
                     </Button>
