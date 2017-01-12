@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Alert,
     Badge,
+    Button,
     Col,
     ListGroup,
     ListGroupItem,
@@ -27,45 +28,54 @@ export default ({
             </span>
         }
         footer={
-            <div className="clearfix">
-            <Table className="text-right clearfix">
-                <tr>
-                    <td>
-                        Subtotal:
-                    </td>
-                    <td
-                        width="30%"
+            itemCount > 0 &&
+                <div>
+                    <Table className="text-right">
+                        <tr>
+                            <td>
+                                Subtotal:
+                            </td>
+                            <td
+                                width="30%"
+                            >
+                                ${Number(subTotal).toLocaleString('en', {
+                                    style: 'decimal',
+                                    minimumFractionDigits: 2
+                                })}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Taxes:
+                            </td>
+                            <td>
+                                ${Number(taxes).toLocaleString('en', {
+                                    style: 'decimal',
+                                    minimumFractionDigits: 2
+                                })}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Total:
+                            </td>
+                            <td>
+                                <strong>${Number(total).toLocaleString('en', {
+                                    style: 'decimal',
+                                    minimumFractionDigits: 2
+                                })}</strong>
+                            </td>
+                        </tr>
+                    </Table>
+                    <hr />
+                    <Button
+                        block
+                        bsSize="large"
+                        bsStyle="success"
                     >
-                        ${Number(subTotal).toLocaleString('en', {
-                            style: 'decimal',
-                            minimumFractionDigits: 2
-                        })}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Taxes:
-                    </td>
-                    <td>
-                        ${Number(taxes).toLocaleString('en', {
-                            style: 'decimal',
-                            minimumFractionDigits: 2
-                        })}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Total:
-                    </td>
-                    <td>
-                        <strong>${Number(total).toLocaleString('en', {
-                            style: 'decimal',
-                            minimumFractionDigits: 2
-                        })}</strong>
-                    </td>
-                </tr>
-            </Table>
-        </div>
+                        Proceeed to Checkout &rarr;
+                    </Button>
+                </div>
         }
     >
         {

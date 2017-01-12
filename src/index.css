@@ -6,11 +6,6 @@ body {
     font: 1.6rem/1.6 'Open Sans Condensed', Tahoma, sans-serif;
 }
 
-button {
-    margin-left: .5rem;
-    margin-right: .5rem;
-}
-
 td {
     vertical-align: middle !important;
 }

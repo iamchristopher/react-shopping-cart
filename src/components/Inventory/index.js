@@ -4,6 +4,8 @@ import {
     Table
 } from 'react-bootstrap';
 
+import styles from './styles.css';
+
 export default ({
     adjustQuantity,
     products,
@@ -37,6 +39,7 @@ export default ({
                     >
                         <Button
                             bsStyle="primary"
+                            className={styles.button}
                             disabled={product.quantityInCart >= product.quantityOnHand}
                             onClick={() => adjustQuantity({
                                 id: product.id,
@@ -47,6 +50,7 @@ export default ({
                         </Button>
                         <Button
                             bsStyle="danger"
+                            className={styles.button}
                             onClick={() => removeItem({
                                 id: product.id
                             })}

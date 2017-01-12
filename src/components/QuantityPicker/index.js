@@ -22,6 +22,7 @@ export default ({
         <FormGroup>
             <Button
                 bsStyle="primary"
+                className={styles.button}
                 disabled={count <= min}
                 onClick={() => adjustQuantity(count - 1)}
             >
@@ -54,6 +55,7 @@ export default ({
             />
             <Button
                 bsStyle="primary"
+                className={styles.button}
                 disabled={count >= max}
                 onClick={() => adjustQuantity(count + 1)}
             >
