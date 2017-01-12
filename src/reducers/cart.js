@@ -1,5 +1,5 @@
 import {
-    UPDATE_QUANTITY
+    UPDATE_CART_QUANTITY
 } from '../actions/cart';
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-        case UPDATE_QUANTITY:
+        case UPDATE_CART_QUANTITY:
             if (action.quantity <= 0) {
                 const {
                     [action.id.toString()]: removedItem,

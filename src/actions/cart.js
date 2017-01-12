@@ -1,11 +1,11 @@
-export const UPDATE_QUANTITY = 'UPDATE_QUANTITY';
+export const UPDATE_CART_QUANTITY = 'UPDATE_CART_QUANTITY';
 
 export const adjustQuantity = ({
     id,
     quantity,
     merge = false
 }) => ({
-    type: UPDATE_QUANTITY,
+    type: UPDATE_CART_QUANTITY,
     id,
     quantity,
     merge
