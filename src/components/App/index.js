@@ -6,38 +6,47 @@ import {
     Nav,
     NavItem
 } from 'react-bootstrap';
+import {
+    browserHistory
+} from 'react-router';
 
 import styles from './styles.css';
-import Inventory from '../../containers/Inventory';
 import Cart from '../../containers/Cart';
 
-export default ({ }) => (
-    <main>
-        <Grid>
-            <Row>
-                <Col xs={8}>
-                    <Nav
-                        activeKey="view"
-                        bsStyle="tabs"
-                        justified
-                    >
-                        <NavItem
-                            eventKey="view"
+export default ({ location, children }) => {
+    const currentRoute = location.pathname.charAt(0) === '/'
+        ?   location.pathname.substr(1)
+        :   location.pathname;
+
+    return (
+        <main>
+            <Grid>
+                <Row>
+                    <Col xs={8}>
+                        <Nav
+                            activeKey={currentRoute}
+                            bsStyle="tabs"
+                            justified
+                            onSelect={route => browserHistory.push(route)}
                         >
-                            View Inventory
-                        </NavItem>
-                        <NavItem
-                            eventKey="add"
-                        >
-                            Add Inventory
-                        </NavItem>
-                    </Nav>
-                    <Inventory />
-                </Col>
-                <Col xs={4}>
-                    <Cart />
-                </Col>
-            </Row>
-        </Grid>
-    </main>
-);
+                            <NavItem
+                                eventKey=""
+                            >
+                                View Inventory
+                            </NavItem>
+                            <NavItem
+                                eventKey="add"
+                            >
+                                Add Inventory
+                            </NavItem>
+                        </Nav>
+                        {children}
+                    </Col>
+                    <Col xs={4}>
+                        <Cart />
+                    </Col>
+                </Row>
+            </Grid>
+        </main>
+    );
+};
