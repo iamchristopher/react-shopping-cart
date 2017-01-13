@@ -12,7 +12,7 @@ import { Provider } from 'react-redux';
 import store from './stores/configureStore';
 
 import Inventory from './containers/Inventory';
-import InventoryForm from './components/forms/Inventory';
+import InventoryForm from './containers/InventoryAdd';
 
 ReactDOM.render(
     <Provider store={store()}>

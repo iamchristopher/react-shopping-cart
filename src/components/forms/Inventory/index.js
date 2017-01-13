@@ -14,9 +14,12 @@ import {
 
 import QuantityPicker from '../../QuantityPicker';
 
-const InventoryForm = ({ initialValues }) => (
+const InventoryForm = ({
+    initialValues,
+    handleSubmit
+}) => (
     <Well>
-        <form>
+        <form onSubmit={handleSubmit}>
             <FormGroup>
                 <ControlLabel>Name</ControlLabel>
                 <Field
@@ -59,6 +62,7 @@ const InventoryForm = ({ initialValues }) => (
                 block
                 bsSize="large"
                 bsStyle="success"
+                type="submit"
             >
                 Add Inventory
             </Button>
