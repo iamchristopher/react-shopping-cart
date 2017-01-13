@@ -19,34 +19,32 @@ export default ({ location, children }) => {
         :   location.pathname;
 
     return (
-        <main>
-            <Grid>
-                <Row>
-                    <Col xs={8}>
-                        <Nav
-                            activeKey={currentRoute}
-                            bsStyle="tabs"
-                            justified
-                            onSelect={route => browserHistory.push(route)}
+        <Grid>
+            <Row>
+                <Col xs={8}>
+                    <Nav
+                        activeKey={currentRoute}
+                        bsStyle="tabs"
+                        justified
+                        onSelect={route => browserHistory.push(route)}
+                    >
+                        <NavItem
+                            eventKey=""
                         >
-                            <NavItem
-                                eventKey=""
-                            >
-                                View Inventory
-                            </NavItem>
-                            <NavItem
-                                eventKey="add"
-                            >
-                                Add Inventory
-                            </NavItem>
-                        </Nav>
-                        {children}
-                    </Col>
-                    <Col xs={4}>
-                        <Cart />
-                    </Col>
-                </Row>
-            </Grid>
-        </main>
+                            View Inventory
+                        </NavItem>
+                        <NavItem
+                            eventKey="add"
+                        >
+                            Add Inventory
+                        </NavItem>
+                    </Nav>
+                    {children}
+                </Col>
+                <Col xs={4}>
+                    <Cart />
+                </Col>
+            </Row>
+        </Grid>
     );
 };
