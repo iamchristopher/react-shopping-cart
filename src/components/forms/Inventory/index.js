@@ -43,13 +43,13 @@ const InventoryForm = ({ initialValues }) => (
                 />
             </FormGroup>
             <FormGroup>
-                <ControlLabel>Amount Available</ControlLabel>
+                <ControlLabel>Quantity on Hand</ControlLabel>
                 <Field
-                    name="inventoryAvailable"
+                    name="quantityOnHand"
                     component={({ input, meta }) => <QuantityPicker
                         adjustQuantity={input.onChange}
                         count={input.value}
-                        min={initialValues.inventoryAvailable}
+                        min={initialValues.quantityOnHand}
                         max={10}
                     />}
                 />
@@ -69,7 +69,7 @@ const InventoryForm = ({ initialValues }) => (
 export default reduxForm({
     form: 'inventory',
     initialValues: {
-        inventoryAvailable: 0,
+        quantityOnHand: 0,
         price: 1.00
     }
 })(InventoryForm);
