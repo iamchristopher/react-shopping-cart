@@ -1,5 +1,6 @@
 import {
-    REMOVE_INVENTORY_ITEM
+    REMOVE_INVENTORY_ITEM,
+    INVENTORY_ADD_ITEM
 } from '../actions/inventory';
 
 const initialState = {
@@ -32,6 +33,23 @@ export default (state = initialState, action = {}) => {
             } = state;
 
             return newState;
+        case INVENTORY_ADD_ITEM:
+            const {
+                type,
+                ...productData
+            } = action;
+            const nextId = Math
+                .max(...Object
+                    .keys(state)
+                ) + 1;
+
+            return {
+                ...state,
+                [nextId]: {
+                    ...productData,
+                    id: nextId
+                }
+            };
         default:
             return state;
     }
