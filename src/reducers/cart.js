@@ -3,7 +3,7 @@ import {
     FLUSH_CART
 } from '../actions/cart';
 import {
-    REMOVE_INVENTORY_ITEM
+    INVENTORY_ITEM_REMOVE
 } from '../actions/inventory';
 
 const initialState = {
@@ -33,7 +33,7 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 [action.id]: parseInt(action.quantity, 10)
             };
-        case REMOVE_INVENTORY_ITEM:
+        case INVENTORY_ITEM_REMOVE:
             const {
                 [action.id.toString()]: removedItem,
                 ...newState

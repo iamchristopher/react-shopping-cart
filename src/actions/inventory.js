@@ -1,10 +1,10 @@
-export const REMOVE_INVENTORY_ITEM = 'REMOVE_INVENTORY_ITEM';
-export const INVENTORY_ADD_ITEM = 'INVENTORY_ADD_ITEM';
+export const INVENTORY_ITEM_REMOVE = 'INVENTORY_ITEM_REMOVE';
+export const INVENTORY_ITEM_ADD = 'INVENTORY_ITEM_ADD';
 
 export const removeItem = ({
     id
 }) => ({
-    type: REMOVE_INVENTORY_ITEM,
+    type: INVENTORY_ITEM_REMOVE,
     id
 });
 
@@ -13,7 +13,7 @@ export const addItem = ({
     price,
     quantityOnHand
 }) => ({
-    type: INVENTORY_ADD_ITEM,
+    type: INVENTORY_ITEM_ADD,
     name,
     price,
     quantityOnHand

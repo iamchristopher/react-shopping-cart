@@ -1,6 +1,6 @@
 import {
-    REMOVE_INVENTORY_ITEM,
-    INVENTORY_ADD_ITEM
+    INVENTORY_ITEM_REMOVE,
+    INVENTORY_ITEM_ADD
 } from '../actions/inventory';
 
 const initialState = {
@@ -26,14 +26,14 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-        case REMOVE_INVENTORY_ITEM:
+        case INVENTORY_ITEM_REMOVE:
             const {
                 [action.id.toString()]: removedItem,
                 ...newState
             } = state;
 
             return newState;
-        case INVENTORY_ADD_ITEM:
+        case INVENTORY_ITEM_ADD:
             const {
                 type,
                 ...productData
