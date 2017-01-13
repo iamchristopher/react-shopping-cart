@@ -34,6 +34,9 @@ const InventoryForm = ({ initialValues }) => (
                         <InputGroup.Addon>$</InputGroup.Addon>
                         <FormControl
                             {...input}
+                            min="0.01"
+                            step="0.01"
+                            dataNumberToFixed="2"
                             type="number"
                         />
                     </InputGroup>}
@@ -66,6 +69,7 @@ const InventoryForm = ({ initialValues }) => (
 export default reduxForm({
     form: 'inventory',
     initialValues: {
-        inventoryAvailable: 0
+        inventoryAvailable: 0,
+        price: 1.00
     }
 })(InventoryForm);
