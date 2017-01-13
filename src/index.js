@@ -12,13 +12,14 @@ import { Provider } from 'react-redux';
 import store from './stores/configureStore';
 
 import Inventory from './containers/Inventory';
+import InventoryForm from './components/forms/Inventory';
 
 ReactDOM.render(
     <Provider store={store()}>
         <Router history={browserHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={Inventory} />
-                <Route path="/add" component={() => <div>Add item</div>}></Route>
+                <Route path="/add" component={InventoryForm}></Route>
             </Route>
         </Router>
     </Provider>,
