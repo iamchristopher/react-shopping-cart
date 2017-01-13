@@ -99,12 +99,13 @@ export default ({
                         <ListGroupItem key={i}>
                             <Row>
                                 <Col
-                                    xs={3}
+                                    xs={4}
                                 >
                                     {product.name}
                                 </Col>
                                 <Col
-                                    xs={7}
+                                    className="text-right"
+                                    xs={6}
                                 >
                                     <QuantityPicker
                                         id={product.id}
