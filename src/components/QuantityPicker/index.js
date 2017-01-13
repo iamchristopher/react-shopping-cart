@@ -10,13 +10,12 @@ import {
 import styles from './styles.css';
 
 export default ({
-    count,
+    count = 1,
     min = 1,
     max = 1,
     adjustQuantity
 }) => (
     <Form
-        className="pull-right"
         inline
     >
         <FormGroup>
