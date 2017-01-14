@@ -12,6 +12,7 @@ import {
     Well
 } from 'react-bootstrap';
 
+import validate from './validation';
 import QuantityPicker from '../../QuantityPicker';
 
 const InventoryForm = ({
@@ -20,15 +21,24 @@ const InventoryForm = ({
 }) => (
     <Well>
         <form onSubmit={handleSubmit}>
-            <FormGroup>
-                <ControlLabel>Name</ControlLabel>
-                <Field
-                    name="name"
-                    component={({ input, meta }) => <FormControl
-                        {...input}
-                    />}
-                />
-            </FormGroup>
+            <Field
+                name="name"
+                component={({ input, meta: { touched, error } }) => (
+                    <FormGroup
+                        validationState={
+                            touched && error
+                                ?   'error'
+                                :   null
+                        }
+                    >
+                        <ControlLabel>Name</ControlLabel>
+                        <FormControl
+                            {...input}
+                        />
+                        <FormControl.Feedback />
+                    </FormGroup>
+                )}
+            />
             <FormGroup>
                 <ControlLabel>Price</ControlLabel>
                 <Field
@@ -72,6 +82,7 @@ const InventoryForm = ({
 
 export default reduxForm({
     form: 'inventory',
+    validate,
     initialValues: {
         quantityOnHand: 0,
         price: 1.00
